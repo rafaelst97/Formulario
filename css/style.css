@@ -6,6 +6,6 @@
     margin: 1px solid;
     border-radius: 3px;
     border-color: black;
-    height: 200px;
-    width: 200px;
+    max-width: 600px;
+    margin-left: 20px;
 }
