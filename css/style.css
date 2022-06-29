@@ -1,3 +1,11 @@
 .margemAjustada{
     margin-top: 20px;
 }
+
+.formArea{
+    margin: 1px solid;
+    border-radius: 3px;
+    border-color: black;
+    height: 200px;
+    width: 200px;
+}
