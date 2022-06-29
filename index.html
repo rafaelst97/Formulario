@@ -30,8 +30,9 @@
                 <form class="formArea">
                     <div class="container">
                         <div class="row">
+                            <small><span class="required">* Preenchimento obrigatório</span></small>
                             <div class="col-12 form-group">
-                                <label for="nome">Nome: </label>
+                                <label for="nome">Nome: </label><span class="required">*</span>
                                 <input type="text" class="form-control" id="nome" aria-describedby="nomeProduto">
                             </div>
                         </div>
@@ -39,7 +40,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-6 form-group">
-                                <label for="unidade">Unidade de medida: </label>
+                                <label for="unidade">Unidade de medida: </label><span class="required">*</span>
                                 <select id="unidade" class="form-select" aria-label="unidadeMedida">
                                     <option selected>Selecione...</option>
                                     <option value="1">Unidade</option>
@@ -56,23 +57,23 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 form-group">
-                                <label for="preco">Preço: </label>
+                                <label for="preco">Preço: </label><span class="required">*</span>
                                 <input type="text" class="form-control" id="preco" aria-describedby="preco">
                             </div>
                         </div>
                     </div>
                     <div class="container">
                         <div class="row">
-                            <label>Produto perecível:</label>
                             <div class="container">
+                                <label>Produto perecível: </label><span class="required">*</span><br>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                        value="option1">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="option1">
                                     <label class="form-check-label" for="inlineRadio1">1</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                        value="option2">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio2" value="option2">
                                     <label class="form-check-label" for="inlineRadio2">2</label>
                                 </div>
                             </div>
@@ -81,11 +82,11 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-6 form-group">
-                                <label for="validade">Data de validade: </label>
+                                <label for="validade">Data de validade: </label><span class="required">*</span>
                                 <input type="date" class="form-control" id="validade" aria-describedby="validade">
                             </div>
                             <div class="col-6 form-group">
-                                <label for="fabricacao">Data de fabricação: </label>
+                                <label for="fabricacao">Data de fabricação: </label><span class="required">*</span>
                                 <input type="date" class="form-control" id="fabricacao" aria-describedby="fabricacao">
                             </div>
                         </div>
