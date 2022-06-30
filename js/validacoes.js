@@ -45,7 +45,6 @@ function validarEntradas(entrada) {
         desativarAlerta("#semFabricacao");
     }
 
-    debugger;
     if(validade < fabricacao || validade < hoje){
         return false;
     }
