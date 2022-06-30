@@ -1,8 +1,8 @@
 function validarEntradas(entrada) {
 
     let validade = entrada.dataValidade.getTime();
-    debugger;
     let fabricacao = entrada.dataFabricacao.getTime();
+    let hoje = new Date();
 
     if (entrada.nome == "" || entrada.nome == null) {
         ativarAlerta("#semNome");
@@ -28,12 +28,11 @@ function validarEntradas(entrada) {
         desativarAlerta("#semPreco");
     }
 
-    if (entrada.perecivel != "true" || entrada.perecivel != false || entrada.perecivel == null) {
+    if (entrada.perecivel != "true" && entrada.perecivel != "false" && entrada.perecivel == null) {
         ativarAlerta("#semPerecivel");
     }else{
         desativarAlerta("#semPerecivel");
     }
-    debugger;
     if(entrada.perecivel == "true" && (entrada.dataValidade == "" || entrada.dataValidade == null || isNaN(entrada.dataValidade))){
         ativarAlerta("#semValidade");
     }else{
@@ -46,9 +45,12 @@ function validarEntradas(entrada) {
         desativarAlerta("#semFabricacao");
     }
 
-    if(validade < fabricacao){
-        alert("Produto vencido!");
+    debugger;
+    if(validade < fabricacao || validade < hoje){
+        return false;
     }
+
+    return true;
 }
 
 $(document).on("change", "input[name='radioPerecivel']", function(){

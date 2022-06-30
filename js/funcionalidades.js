@@ -7,8 +7,7 @@ function salvar(){
     let perecivel = $('input[name="radioPerecivel"]:checked').val();
     let dataValidade = new Date($("#validade").val());
     let dataFabricacao = new Date($("#fabricacao").val());
-    let datateste = dataFabricacao.getTime();
-    debugger;
+    let produtoValido;
 
     let item ={
         nome: nome,
@@ -20,16 +19,20 @@ function salvar(){
         dataFabricacao: dataFabricacao
     };
 
-    validarEntradas(item)
+    produtoValido = validarEntradas(item)
 
-    let itensTabela = buscarDeLocalStorage("itensTabela");
-    itensTabela = transformaJsonEmObjeto(itensTabela);
-    
-    if (itensTabela == null){
-        itensTabela = [];
+    if(produtoValido){
+        let itensTabela = buscarDeLocalStorage("itensTabela");
+        itensTabela = transformaJsonEmObjeto(itensTabela);
+        
+        if (itensTabela == null){
+            itensTabela = [];
+        }
+
+        itensTabela.push(item);
+        itensTabela = transformarEmJson(itensTabela);
+        salvarEmLocalStorage(itensTabela);
+    }else{
+        alert("Produto vencido!");
     }
-
-    itensTabela.push(item);
-    itensTabela = transformarEmJson(itensTabela);
-    salvarEmLocalStorage(itensTabela);
 }
