@@ -32,6 +32,7 @@ function salvar(){
         itensTabela.push(item);
         itensTabela = transformarEmJson(itensTabela);
         salvarEmLocalStorage(itensTabela);
+        alert("Item salvo com Sucesso!");
     }else{
         alert("Produto vencido!");
     }
