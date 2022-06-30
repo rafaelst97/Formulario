@@ -62,7 +62,7 @@ function editaItem(id){
     $("#quantidade").val(itens[id].quantidade);
     $("#preco").val(itens[id].preco);
     $("#fabricacao").val(converteDataParaISO(itens[id].dataFabricacao));
-    $("#perecivel").val(itens[id].perecivel);
+    $(`input[name=radioPerecivel][value=${itens[id].perecivel}]`).prop("checked", true);
 
     if (itens[id].dataValidade != null){
         $("#validade").val(converteDataParaISO(itens[id].dataValidade));
