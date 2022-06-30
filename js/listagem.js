@@ -16,7 +16,6 @@ function inserirLinha(item, index){
     let dataValidade = new Date(item.dataValidade);
     dataFabricacao = dataFabricacao.getDate() + "/" + (dataFabricacao.getMonth() + 1) + "/" + dataFabricacao.getFullYear();
     dataValidade = dataValidade.getDate() + "/" + (dataValidade.getMonth() + 1) + "/" + dataValidade.getFullYear();
-    debugger;
 
     let html = `<tr>
     <td></td>
