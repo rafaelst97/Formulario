@@ -14,8 +14,11 @@ function salvar(){
         quantidade: quantidade,
         preco: preco,
         perecivel: perecivel,
+        dataValidade: dataValidade,
         dataFabricacao: dataFabricacao
     };
+
+    validarEntradas(item)
 
     let itensTabela = buscarDeLocalStorage("itensTabela");
     itensTabela = transformaJsonEmObjeto(itensTabela);
