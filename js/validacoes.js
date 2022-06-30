@@ -80,3 +80,13 @@ $(document).on("blur", "#quantidade", function(){
     let quantidade = $("#quantidade");
     mascaraQuantidade(quantidade);
 })
+
+function verificaQuantidadeVazia(string){
+
+    if (string.charCodeAt(0) === 32 ){
+    
+        let retorno = `0 ${string}`
+        return retorno;
+    }
+        return;
+}

@@ -24,6 +24,7 @@ function salvar(){
     if(produtoValido){
         let itensTabela = buscarDeLocalStorage("itensTabela");
         itensTabela = transformaJsonEmObjeto(itensTabela);
+        item.quantidade = verificaQuantidadeVazia(item.quantidade);
         
         if (itensTabela == null){
             itensTabela = [];

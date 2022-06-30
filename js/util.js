@@ -41,12 +41,15 @@ function mascaraQuantidade(elemento){
 	switch(unidade){
 		case 'Litro':
             $("#quantidade").val(quantidade + " Lt.");
+			$("#quantidade").attr("placeholder", "0 Lt.");
 			break
 		case 'Quilograma':
 			$("#quantidade").val(quantidade + " Kg.");
+			$("#quantidade").attr("placeholder", "0 Kg.");
 			break
 		case 'Unidade':
 			$("#quantidade").val(quantidade + " Un.");
+			$("#quantidade").attr("placeholder", "0 Un.");
 			break
 	}
 }
