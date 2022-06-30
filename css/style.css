@@ -21,3 +21,8 @@
 .listagem{
     min-width: 576px;
 }
+
+.btnListagem{
+    width: 16;
+    height: 16;
+}

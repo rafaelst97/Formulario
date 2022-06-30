@@ -36,3 +36,12 @@ function salvar(){
         alert("Produto vencido!");
     }
 }
+
+function excluir(id){
+
+    let itensTabela = buscarDeLocalStorage("itensTabela");
+    itensTabela = transformaJsonEmObjeto(itensTabela);
+    itensTabela.splice(id, 1);
+    itensTabela = transformarEmJson(itensTabela);
+    salvarEmLocalStorage(itensTabela);
+}
