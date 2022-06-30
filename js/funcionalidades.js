@@ -5,8 +5,8 @@ function salvar(){
     let quantidade = $("#quantidade").val();
     let preco = $("#preco").val();
     let perecivel = $('input[name="radioPerecivel"]:checked').val();
-    let dataValidade = $("#validade").val();
-    let dataFabricacao = $("#validade").val();
+    let dataValidade = new Date($("#validade").val());
+    let dataFabricacao = new Date($("#fabricacao").val());
 
-    alert(perecivel);
+    alert(dataFabricacao);
 }
