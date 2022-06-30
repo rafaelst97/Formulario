@@ -19,6 +19,7 @@ function salvar(){
         dataFabricacao: dataFabricacao
     };
 
+    debugger;
     produtoValido = validarEntradas(item)
 
     if(produtoValido){

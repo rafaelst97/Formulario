@@ -82,10 +82,12 @@ $(document).on("blur", "#quantidade", function(){
 
 function verificaQuantidadeVazia(string){
 
-    if (string.charCodeAt(0) === 32 ){
+    if (string.charAt(0) == " " ){
     
         let retorno = `0 ${string}`
         return retorno;
+    }else{
+        
+        return string;
     }
-        return;
 }
