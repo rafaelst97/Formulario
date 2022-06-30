@@ -7,6 +7,8 @@ function salvar(){
     let perecivel = $('input[name="radioPerecivel"]:checked').val();
     let dataValidade = new Date($("#validade").val());
     let dataFabricacao = new Date($("#fabricacao").val());
+    let datateste = dataFabricacao.getTime();
+    debugger;
 
     let item ={
         nome: nome,

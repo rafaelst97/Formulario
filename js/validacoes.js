@@ -1,6 +1,7 @@
 function validarEntradas(entrada) {
 
     let validade = entrada.dataValidade.getTime();
+    debugger;
     let fabricacao = entrada.dataFabricacao.getTime();
 
     if (entrada.nome == "" || entrada.nome == null) {
@@ -27,13 +28,13 @@ function validarEntradas(entrada) {
         desativarAlerta("#semPreco");
     }
 
-    if (entrada.perecivel != true || entrada.perecivel != false || entrada.perecivel == null) {
+    if (entrada.perecivel != "true" || entrada.perecivel != false || entrada.perecivel == null) {
         ativarAlerta("#semPerecivel");
     }else{
         desativarAlerta("#semPerecivel");
     }
-
-    if(entrada.perecivel == true && (entrada.dataValidade == "" || entrada.dataValidade == null || isNaN(dataValidade))){
+    debugger;
+    if(entrada.perecivel == "true" && (entrada.dataValidade == "" || entrada.dataValidade == null || isNaN(entrada.dataValidade))){
         ativarAlerta("#semValidade");
     }else{
         desativarAlerta("#semValidade");
@@ -45,15 +46,20 @@ function validarEntradas(entrada) {
         desativarAlerta("#semFabricacao");
     }
 
-    if(fabricacao < validade){
+    if(validade < fabricacao){
         alert("Produto vencido!");
     }
-
-
-    
 }
 
-$()
+$(document).on("change", "input[name='radioPerecivel']", function(){
+    let valorRadio = $('input[name="radioPerecivel"]:checked').val();
+
+    if(valorRadio == "true"){
+        $("#validade").removeAttr("disabled");
+    }else{
+        $("#validade").attr("disabled", "disabled");
+    }
+})
 
 function ativarAlerta(elemento){
     $(elemento).addClass("d-inline-flex");
