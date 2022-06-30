@@ -19,3 +19,7 @@ function transformaJsonEmObjeto(json){
 
     return retorno;
 }
+
+function atualizaPagina(){
+    location.reload();
+}

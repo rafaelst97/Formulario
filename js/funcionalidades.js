@@ -37,11 +37,16 @@ function salvar(){
     }
 }
 
-function excluir(id){
+function preparaModal(id){
+    $("#idExcluir").val(id);
+}
 
+function excluirItem(){
+    let id = $("#idExcluir").val();
     let itensTabela = buscarDeLocalStorage("itensTabela");
-    itensTabela = transformaJsonEmObjeto(itensTabela);
+    itensTabela = transformaJsonEmObjeto(itensTabela);   
     itensTabela.splice(id, 1);
     itensTabela = transformarEmJson(itensTabela);
     salvarEmLocalStorage(itensTabela);
+    atualizaPagina();
 }
