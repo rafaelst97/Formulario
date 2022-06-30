@@ -52,3 +52,18 @@ function excluirItem(){
     salvarEmLocalStorage(itensTabela);
     atualizaPagina();
 }
+
+function editaItem(id){
+    let itens = buscarDeLocalStorage();
+    itens = transformaJsonEmObjeto(itens);
+    $("#nome").val(itens[id].nome);
+    $("#unidade").val(itens[id].unidade);
+    $("#quantidade").val(itens[id].quantidade);
+    $("#preco").val(itens[id].preco);
+    $("#fabricacao").val(converteDataParaISO(itens[id].dataFabricacao));
+    $("#perecivel").val(itens[id].perecivel);
+
+    if (itens[id].dataValidade != null){
+        $("#validade").val(converteDataParaISO(itens[id].dataValidade));
+    }
+}

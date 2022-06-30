@@ -71,7 +71,6 @@ function desativarAlerta(elemento){
 }
 
 $(document).on("change", "#unidade", function(){
-    debugger;
     let quantidade = $("#quantidade");
     mascaraQuantidade(quantidade);
 })
