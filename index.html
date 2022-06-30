@@ -64,7 +64,7 @@
                             <div class="col-sm-12 form-group">
                                 <label for="preco">Preço: </label><span class="required">*</span>
                                 <input type="text" class="form-control" id="preco" aria-describedby="preco"
-                                    placeholder="R$0,00" required>
+                                    placeholder="R$0,00" required onkeyup="mascaraReal(this)">
                                 <span id="semPreco" class="alert alert-danger" hidden>Preço é obrigatório</span>
                             </div>
                         </div>

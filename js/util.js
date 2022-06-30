@@ -24,13 +24,13 @@ function atualizaPagina(){
     location.reload();
 }
 
-function mascaraReal(i){
-	let v = i.value.replace(/\D/g,'');
-	v = (v/100).toFixed(2) + '';
-	v = v.replace(".", ",");
-	v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
-	v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
-	i.value = 'R$' +  v;
+function mascaraReal(elemento){
+	let valor = elemento.value.replace(/\D/g,'');
+	valor = (valor/100).toFixed(2) + '';
+	valor = valor.replace(".", ",");
+	valor = valor.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+	valor = valor.replace(/(\d)(\d{3}),/g, "$1.$2,");
+	elemento.value = 'R$' +  valor;
 }
 
 function mascaraQuantidade(elemento){
