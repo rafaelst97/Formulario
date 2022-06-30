@@ -49,15 +49,15 @@
                                 <label for="unidade">Unidade de medida: </label><span class="required">*</span>
                                 <select id="unidade" class="form-select" aria-label="unidadeMedida" required>
                                     <option disabled selected value="">Selecione...</option>
-                                    <option value="1">Unidade</option>
-                                    <option value="2">Litro</option>
-                                    <option value="3">Quilograma</option>
+                                    <option value="Unidade">Unidade</option>
+                                    <option value="Litro">Litro</option>
+                                    <option value="Quilograma">Quilograma</option>
                                 </select>
                                 <span id="semUnidade" class="alert alert-danger" hidden>Unidade de medida é obrigatória</span>
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label for="quantidade">Quantidade: </label>
-                                <input type="number" class="form-control" id="quantidade" aria-describedby="quantidade">
+                                <input type="text" class="form-control" id="quantidade" aria-describedby="quantidade" onchange="mascaraQuantidade(this)">
                             </div>
                         </div>
                         <div class="row">

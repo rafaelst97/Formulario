@@ -69,3 +69,14 @@ function ativarAlerta(elemento){
 function desativarAlerta(elemento){
     $(elemento).removeClass("d-inline-flex");
 }
+
+$(document).on("change", "#unidade", function(){
+    debugger;
+    let quantidade = $("#quantidade");
+    mascaraQuantidade(quantidade);
+})
+
+$(document).on("blur", "#quantidade", function(){
+    let quantidade = $("#quantidade");
+    mascaraQuantidade(quantidade);
+})
