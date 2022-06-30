@@ -1,9 +1,64 @@
 function validarEntradas(entrada) {
 
-    if (entrada.nome == ""){
-        $("#semNome").addClass("d-inline-flex")
+    let validade = entrada.dataValidade.getTime();
+    let fabricacao = entrada.dataFabricacao.getTime();
+
+    if (entrada.nome == "" || entrada.nome == null) {
+        ativarAlerta("#semNome");
     }else{
-        $("#semNome").removeClass("d-inline-flex")
+        desativarAlerta("#semNome");
     }
+
+    if (entrada.nome.length > 50){
+        ativarAlerta("#maximoCaracteres");
+    }else{
+        desativarAlerta("#maximoCaracteres");
+    }
+
+    if (entrada.unidade == "" || entrada.unidade == null) {
+        ativarAlerta("#semUnidade");
+    }else{
+        desativarAlerta("#semUnidade");
+    }
+
+    if (entrada.preco == 0 || entrada.preco == "" || entrada.preco == null) {
+        ativarAlerta("#semPreco");
+    }else{
+        desativarAlerta("#semPreco");
+    }
+
+    if (entrada.perecivel != true || entrada.perecivel != false || entrada.perecivel == null) {
+        ativarAlerta("#semPerecivel");
+    }else{
+        desativarAlerta("#semPerecivel");
+    }
+
+    if(entrada.perecivel == true && (entrada.dataValidade == "" || entrada.dataValidade == null || isNaN(dataValidade))){
+        ativarAlerta("#semValidade");
+    }else{
+        desativarAlerta("#semValidade");
+    }
+
+    if(entrada.dataFabricacao == "" || entrada.dataFabricacao == null || isNaN(entrada.dataFabricacao)){
+        ativarAlerta("#semFabricacao");
+    }else{
+        desativarAlerta("#semFabricacao");
+    }
+
+    if(fabricacao < validade){
+        alert("Produto vencido!");
+    }
+
+
     
+}
+
+$()
+
+function ativarAlerta(elemento){
+    $(elemento).addClass("d-inline-flex");
+}
+
+function desativarAlerta(elemento){
+    $(elemento).removeClass("d-inline-flex");
 }
