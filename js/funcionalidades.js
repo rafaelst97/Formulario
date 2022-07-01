@@ -10,6 +10,7 @@ function salvar(edicao = false){
     let itensTabela = buscarDeLocalStorage("itensTabela");
         itensTabela = transformaJsonEmObjeto(itensTabela);
     let produtoValido;
+    let validadeCorreta;
 
     let item ={
         nome: nome,
@@ -25,11 +26,11 @@ function salvar(edicao = false){
         item.dataValidade = null;
     }
 
-    debugger;
     produtoValido = validarEntradas(item);
+    validadeCorreta = verificaValidade(item);
     item.quantidade = verificaQuantidadeVazia(item.quantidade);
 
-    if(produtoValido){
+    if(produtoValido == true && validadeCorreta == true){
         
         if (itensTabela == null){
             itensTabela = [];
@@ -48,7 +49,7 @@ function salvar(edicao = false){
         itensTabela = transformarEmJson(itensTabela);
         salvarEmLocalStorage(itensTabela);
 
-    }else{
+    }else if (validadeCorreta == false){
         modal("#itemVencido");
     }
 }

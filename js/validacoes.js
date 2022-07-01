@@ -1,13 +1,6 @@
 function validarEntradas(entrada) {
 
-    let validade;
-    let fabricacao = entrada.dataFabricacao.getTime();
-    let hoje = new Date();
     let entradaValida = true;
-
-    if (entrada.dataValidade != null){
-        validade = entrada.dataValidade.getTime();
-    }
 
     if (entrada.nome == "" || entrada.nome == null) {
         ativarAlerta("#semNome");
@@ -58,10 +51,6 @@ function validarEntradas(entrada) {
         desativarAlerta("#semFabricacao");
     }
 
-    if(validade < fabricacao || validade < hoje){
-        entradaValida = false;
-    }
-
     return entradaValida;
 }
 
@@ -86,13 +75,29 @@ $(document).on("blur", "#quantidade", function(){
 })
 
 function verificaQuantidadeVazia(string){
-
     if (string.charAt(0) == " " ){
-    
         let retorno = `0 ${string}`
+
         return retorno;
     }else{
-        
         return string;
     }
+}
+
+function verificaValidade(item){
+    let validade;
+    let fabricacao = item.dataFabricacao.getTime();
+    let hoje = new Date();
+    let itemValido = true;
+    debugger;
+
+    if (item.dataValidade != null){
+        validade = item.dataValidade.getTime();
+    }
+
+    if(validade < fabricacao || validade < hoje){
+        itemValido = false;
+    }
+
+    return itemValido;
 }
