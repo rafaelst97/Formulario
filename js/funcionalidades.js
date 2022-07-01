@@ -1,4 +1,4 @@
-function salvar(){
+function salvar(edicao = false){
 
     let nome = $("#nome").val();
     let unidade = $("#unidade").val();
@@ -7,6 +7,8 @@ function salvar(){
     let perecivel = $('input[name="radioPerecivel"]:checked').val();
     let dataValidade = new Date($("#validade").val());
     let dataFabricacao = new Date($("#fabricacao").val());
+    let itensTabela = buscarDeLocalStorage("itensTabela");
+        itensTabela = transformaJsonEmObjeto(itensTabela);
     let produtoValido;
 
     let item ={
@@ -19,22 +21,29 @@ function salvar(){
         dataFabricacao: dataFabricacao
     };
 
-    debugger;
-    produtoValido = validarEntradas(item)
+    produtoValido = validarEntradas(item);
+    item.quantidade = verificaQuantidadeVazia(item.quantidade);
 
     if(produtoValido){
-        let itensTabela = buscarDeLocalStorage("itensTabela");
-        itensTabela = transformaJsonEmObjeto(itensTabela);
-        item.quantidade = verificaQuantidadeVazia(item.quantidade);
         
         if (itensTabela == null){
             itensTabela = [];
         }
 
-        itensTabela.push(item);
+        if (edicao == false){
+            itensTabela.push(item);
+        }else{
+            let id = $("#itemEditado").val();
+            itensTabela[id] = item;
+            location.reload();
+        }
+
         itensTabela = transformarEmJson(itensTabela);
         salvarEmLocalStorage(itensTabela);
-        alert("Item salvo com Sucesso!");
+
+        if (edicao == false){
+            alert("Item salvo com Sucesso!");
+        }
     }else{
         alert("Produto vencido!");
     }
@@ -57,6 +66,7 @@ function excluirItem(){
 function editaItem(id){
     let itens = buscarDeLocalStorage();
     itens = transformaJsonEmObjeto(itens);
+    $("#itemEditado").val(id);
     $("#nome").val(itens[id].nome);
     $("#unidade").val(itens[id].unidade);
     $("#quantidade").val(itens[id].quantidade);

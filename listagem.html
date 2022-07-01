@@ -21,87 +21,93 @@
 
 <body>
     <!-- Modal Edição-->
-<div class="modal fade" id="edicaoModal" tabindex="-1" aria-labelledby="edicaoModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="edicaoModalLabel">Edição de item</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-                <small><span class="required">* Preenchimento obrigatório</span></small>
-                <div class="col-sm-12 form-group">
-                    <label for="nome">Nome: </label><span class="required">*</span>
-                    <input type="text" class="form-control" id="nome" aria-describedby="nomeProduto"
-                        maxlength="50" required>
-                    <span id="semNome" class="alert alert-danger" hidden>Nome é obrigatório</span>
-                    <span id="maximoCaracteres" class="alert alert-danger" hidden>Nome deve possuir no máximo 50
-                        caracteres</span>
+    <div class="modal fade" id="edicaoModal" tabindex="-1" aria-labelledby="edicaoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="edicaoModalLabel">Edição de item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 form-group">
-                    <label for="unidade">Unidade de medida: </label><span class="required">*</span>
-                    <select id="unidade" class="form-select" aria-label="unidadeMedida" required>
-                        <option disabled selected value="">Selecione...</option>
-                        <option value="Unidade">Unidade</option>
-                        <option value="Litro">Litro</option>
-                        <option value="Quilograma">Quilograma</option>
-                    </select>
-                    <span id="semUnidade" class="alert alert-danger" hidden>Unidade de medida é obrigatória</span>
-                </div>
-                <div class="col-sm-6 form-group">
-                    <label for="quantidade">Quantidade: </label>
-                    <input type="text" class="form-control" id="quantidade" aria-describedby="quantidade" onkeyup="mascaraQuantidade(this)">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 form-group">
-                    <label for="preco">Preço: </label><span class="required">*</span>
-                    <input type="text" class="form-control" id="preco" aria-describedby="preco"
-                        placeholder="R$0,00" required onkeyup="mascaraReal(this)">
-                    <span id="semPreco" class="alert alert-danger" hidden>Preço é obrigatório</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container">
-                    <label for="selectPerecivel">Produto perecível: </label><span
-                        class="required d-inline-flex">*</span><br>
-                    <div class="form-check form-check-inline" id="selectPerecivel">
-                        <input class="form-check-input" type="radio" name="radioPerecivel" id="radioPerecivelTrue"
-                            value="true" required>
-                        <label class="form-check-label" for="inlineRadio1">Sim</label>
+                <div class="modal-body">
+                    <div class="row">
+                        <small><span class="required">* Preenchimento obrigatório</span></small>
+                        <div class="col-sm-12 form-group">
+                            <label for="nome">Nome: </label><span class="required">*</span>
+                            <input type="text" class="form-control" id="nome" aria-describedby="nomeProduto"
+                                maxlength="50" required>
+                            <span id="semNome" class="alert alert-danger" hidden>Nome é obrigatório</span>
+                            <span id="maximoCaracteres" class="alert alert-danger" hidden>Nome deve possuir no máximo 50
+                                caracteres</span>
+                        </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="radioPerecivel" id="radioPerecivelFalse"
-                            value="false">
-                        <label class="form-check-label" for="inlineRadio2">Não</label>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label for="unidade">Unidade de medida: </label><span class="required">*</span>
+                            <select id="unidade" class="form-select" aria-label="unidadeMedida" required>
+                                <option disabled selected value="">Selecione...</option>
+                                <option value="Unidade">Unidade</option>
+                                <option value="Litro">Litro</option>
+                                <option value="Quilograma">Quilograma</option>
+                            </select>
+                            <span id="semUnidade" class="alert alert-danger" hidden>Unidade de medida é
+                                obrigatória</span>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="quantidade">Quantidade: </label>
+                            <input type="text" class="form-control" id="quantidade" aria-describedby="quantidade"
+                                onkeyup="mascaraQuantidade(this)">
+                        </div>
                     </div>
-                    <br>
-                    <span id="semPerecivel" class="alert alert-danger" hidden>Obrigatório informar se é perecível</span>
+                    <div class="row">
+                        <div class="col-sm-12 form-group">
+                            <label for="preco">Preço: </label><span class="required">*</span>
+                            <input type="text" class="form-control" id="preco" aria-describedby="preco"
+                                placeholder="R$0,00" required onkeyup="mascaraReal(this)">
+                            <span id="semPreco" class="alert alert-danger" hidden>Preço é obrigatório</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="container">
+                            <label for="selectPerecivel">Produto perecível: </label><span
+                                class="required d-inline-flex">*</span><br>
+                            <div class="form-check form-check-inline" id="selectPerecivel">
+                                <input class="form-check-input" type="radio" name="radioPerecivel"
+                                    id="radioPerecivelTrue" value="true" required>
+                                <label class="form-check-label" for="inlineRadio1">Sim</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="radioPerecivel"
+                                    id="radioPerecivelFalse" value="false">
+                                <label class="form-check-label" for="inlineRadio2">Não</label>
+                            </div>
+                            <br>
+                            <span id="semPerecivel" class="alert alert-danger" hidden>Obrigatório informar se é
+                                perecível</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label for="validade">Data de validade: </label><span class="required">*</span>
+                            <input type="date" class="form-control" id="validade" aria-describedby="validade" disabled>
+                            <span id="semValidade" class="alert alert-danger" hidden>Validade obrigatória</span>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="fabricacao">Data de fabricação: </label><span class="required">*</span>
+                            <input type="date" class="form-control" id="fabricacao" aria-describedby="fabricacao"
+                                required>
+                            <span id="semFabricacao" class="alert alert-danger" hidden>Fabricação obrigatória</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 form-group">
-                    <label for="validade">Data de validade: </label><span class="required">*</span>
-                    <input type="date" class="form-control" id="validade" aria-describedby="validade" disabled>
-                    <span id="semValidade" class="alert alert-danger" hidden>Validade obrigatória</span>
-                </div>
-                <div class="col-sm-6 form-group">
-                    <label for="fabricacao">Data de fabricação: </label><span class="required">*</span>
-                    <input type="date" class="form-control" id="fabricacao" aria-describedby="fabricacao" required>
-                    <span id="semFabricacao" class="alert alert-danger" hidden>Fabricação obrigatória</span>
+                <div class="modal-footer">
+                    <input type="hidden" value="" id="itemEditado">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#edicaoModal" onclick="salvar(true)">Salvar</button>
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edicaoModal">Salvar</button>
-        </div>
-      </div>
     </div>
-  </div>
     <!-- Modal Exclusão-->
     <div class="modal fade" id="excluirItem" tabindex="-1" aria-labelledby="excluirItemModal" aria-hidden="true">
         <div class="modal-dialog">
@@ -116,7 +122,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-danger" id="btnExcluir" data-bs-toggle="modal" data-bs-target="#excluirItem" onclick="excluirItem()">Excluir</button>
+                    <button type="button" class="btn btn-danger" id="btnExcluir" data-bs-toggle="modal"
+                        data-bs-target="#excluirItem" onclick="excluirItem()">Excluir</button>
                 </div>
             </div>
         </div>
