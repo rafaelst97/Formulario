@@ -4,7 +4,7 @@ function atualizaPagina(){
 
 function converteDataParaString(data){
 	let dataRetorno = new Date(data);
-	dataRetorno = dataRetorno.getDate() + "/" + (dataRetorno.getMonth() + 1) + "/" + dataRetorno.getFullYear();
+	dataRetorno = ("0" + (dataRetorno.getDate() + 1)).slice(-2) + "/" + ("0" + (dataRetorno.getMonth() + 1)).slice(-2) + "/" + dataRetorno.getFullYear();
 
 	return dataRetorno;
 }
