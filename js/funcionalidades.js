@@ -59,7 +59,7 @@ function excluirItem(){
     itensTabela.splice(id, 1);
     itensTabela = transformarEmJson(itensTabela);
     salvarEmLocalStorage(itensTabela);
-    atualizaPagina();
+    modal("#avisoExcluido");
 }
 
 function editaItem(id){
