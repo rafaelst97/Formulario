@@ -85,5 +85,7 @@ function editaItem(id){
 
     if (itens[id].perecivel == "true"){
         $("#validade").prop("disabled", false);
+    }else{
+        $("#validade").prop("disabled", true);
     }
 }
