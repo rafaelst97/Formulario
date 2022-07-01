@@ -35,7 +35,7 @@ function salvar(edicao = false){
         }else{
             let id = $("#itemEditado").val();
             itensTabela[id] = item;
-            location.reload();
+            atualizaPagina();
         }
 
         itensTabela = transformarEmJson(itensTabela);

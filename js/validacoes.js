@@ -62,14 +62,6 @@ $(document).on("change", "input[name='radioPerecivel']", function(){
     }
 })
 
-function ativarAlerta(elemento){
-    $(elemento).addClass("d-inline-flex");
-}
-
-function desativarAlerta(elemento){
-    $(elemento).removeClass("d-inline-flex");
-}
-
 $(document).on("change", "#unidade", function(){
     let quantidade = $("#quantidade");
     mascaraQuantidade(quantidade);
