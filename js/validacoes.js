@@ -1,9 +1,13 @@
 function validarEntradas(entrada) {
 
-    let validade = entrada.dataValidade.getTime();
+    let validade;
     let fabricacao = entrada.dataFabricacao.getTime();
     let hoje = new Date();
     let entradaValida = true;
+
+    if (entrada.dataValidade != null){
+        validade = entrada.dataValidade.getTime();
+    }
 
     if (entrada.nome == "" || entrada.nome == null) {
         ativarAlerta("#semNome");

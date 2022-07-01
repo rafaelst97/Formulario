@@ -23,6 +23,23 @@
 </head>
 
 <body>
+    <!-- Modal item vencido -->
+    <div class="modal fade" id="itemVencido" tabindex="-1" aria-labelledby="itemVencidoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="itemVencidoLabel">Item Vencido</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    O item que está sendo cadastrado está vencido
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#itemVencido">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Modal Conclusão Exclusão -->
     <div class="modal fade" id="avisoExcluido" tabindex="-1" aria-labelledby="avisoExcluidoLabel" aria-hidden="true">
         <div class="modal-dialog">

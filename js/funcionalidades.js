@@ -21,6 +21,11 @@ function salvar(edicao = false){
         dataFabricacao: dataFabricacao
     };
 
+    if (edicao != false && item.perecivel == "false"){
+        item.dataValidade = null;
+    }
+
+    debugger;
     produtoValido = validarEntradas(item);
     item.quantidade = verificaQuantidadeVazia(item.quantidade);
 
@@ -75,5 +80,9 @@ function editaItem(id){
 
     if (itens[id].dataValidade != null){
         $("#validade").val(converteDataParaISO(itens[id].dataValidade));
+    }
+
+    if (itens[id].perecivel == "true"){
+        $("#validade").prop("disabled", false);
     }
 }
