@@ -5,3 +5,7 @@ function ativarAlerta(elemento){
 function desativarAlerta(elemento){
     $(elemento).removeClass("d-inline-flex");
 }
+
+function modal(elemento){
+    $(elemento).modal("show");
+}

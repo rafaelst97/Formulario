@@ -22,10 +22,45 @@
 </head>
 
 <body>
+    <!-- Modal -->
+    <div class="modal fade" id="itemVencido" tabindex="-1" aria-labelledby="itemVencidoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="itemVencidoLabel">Item Vencido</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    O item que está sendo cadastrado está vencido
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#itemVencido">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Item Salvo-->
+    <div class="modal fade" id="itemSalvo" tabindex="-1" aria-labelledby="itemSalvoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="itemSalvoLabel">Item Salvo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Item salvo com sucesso!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#itemSalvo"
+                        onclick="atualizaPagina()">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container margemAjustada justify-content-center">
         <div class="row">
             <div class="col-sm-2">
-                <div class="btn-group-vertical">
+                <div class="btn-group-vertical mb-2">
                     <nav class="btn-group-vertical flex-column">
                         <a href="index.html" class="btn btn-primary active">Formulário</a>
                         <a href="listagem.html" class="btn btn-primary">Listagem</a>
@@ -33,7 +68,7 @@
                 </div>
             </div>
             <div class="col-sm-10">
-                <form class="formArea border border-2 rounded p-2">
+                <form class="formArea border border-2 rounded p-2" id="formularioAdicionar">
                     <div class="container">
                         <div class="row">
                             <h1 class="display-4 text-center">Formulário</h1>
@@ -42,8 +77,9 @@
                                 <label for="nome">Nome: </label><span class="required">*</span>
                                 <input type="text" class="form-control" id="nome" aria-describedby="nomeProduto"
                                     maxlength="50" required>
-                                <span id="semNome" class="alert alert-danger" hidden>Nome é obrigatório</span>
-                                <span id="maximoCaracteres" class="alert alert-danger" hidden>Nome deve possuir no máximo 50
+                                <span id="semNome" class="alert alert-danger mt-2" hidden>Nome é obrigatório</span>
+                                <span id="maximoCaracteres" class="alert alert-danger mt-2" hidden>Nome deve possuir no
+                                    máximo 50
                                     caracteres</span>
                             </div>
                         </div>
@@ -56,11 +92,13 @@
                                     <option value="Litro">Litro</option>
                                     <option value="Quilograma">Quilograma</option>
                                 </select>
-                                <span id="semUnidade" class="alert alert-danger" hidden>Unidade de medida é obrigatória</span>
+                                <span id="semUnidade" class="alert alert-danger mt-2" hidden>Unidade de medida é
+                                    obrigatória</span>
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label for="quantidade">Quantidade: </label>
-                                <input type="text" class="form-control" id="quantidade" aria-describedby="quantidade" onkeyup="mascaraQuantidade(this)">
+                                <input type="text" class="form-control" id="quantidade" aria-describedby="quantidade"
+                                    onkeyup="mascaraQuantidade(this)">
                             </div>
                         </div>
                         <div class="row">
@@ -68,7 +106,7 @@
                                 <label for="preco">Preço: </label><span class="required">*</span>
                                 <input type="text" class="form-control" id="preco" aria-describedby="preco"
                                     placeholder="R$0,00" required onkeyup="mascaraReal(this)">
-                                <span id="semPreco" class="alert alert-danger" hidden>Preço é obrigatório</span>
+                                <span id="semPreco" class="alert alert-danger mt-2" hidden>Preço é obrigatório</span>
                             </div>
                         </div>
                         <div class="row">
@@ -76,34 +114,39 @@
                                 <label for="selectPerecivel">Produto perecível: </label><span
                                     class="required d-inline-flex">*</span><br>
                                 <div class="form-check form-check-inline" id="selectPerecivel">
-                                    <input class="form-check-input" type="radio" name="radioPerecivel" id="radioPerecivelTrue"
-                                        value="true" required>
+                                    <input class="form-check-input" type="radio" name="radioPerecivel"
+                                        id="radioPerecivelTrue" value="true" required>
                                     <label class="form-check-label" for="inlineRadio1">Sim</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="radioPerecivel" id="radioPerecivelFalse"
-                                        value="false">
+                                    <input class="form-check-input" type="radio" name="radioPerecivel"
+                                        id="radioPerecivelFalse" value="false">
                                     <label class="form-check-label" for="inlineRadio2">Não</label>
                                 </div>
                                 <br>
-                                <span id="semPerecivel" class="alert alert-danger" hidden>Obrigatório informar se é perecível</span>
+                                <span id="semPerecivel" class="alert alert-danger mt-2" hidden>Obrigatório informar se é
+                                    perecível</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label for="validade">Data de validade: </label><span class="required">*</span>
-                                <input type="date" class="form-control" id="validade" aria-describedby="validade" disabled placeholder="dd/mm/aaaa">
-                                <span id="semValidade" class="alert alert-danger" hidden>Validade obrigatória</span>
+                                <input type="date" class="form-control" id="validade" aria-describedby="validade"
+                                    disabled placeholder="dd/mm/aaaa">
+                                <span id="semValidade" class="alert alert-danger mt-2" hidden>Validade
+                                    obrigatória</span>
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label for="fabricacao">Data de fabricação: </label><span class="required">*</span>
-                                <input type="date" class="form-control" id="fabricacao" aria-describedby="fabricacao" required placeholder="dd/mm/aaaa">
-                                <span id="semFabricacao" class="alert alert-danger" hidden>Fabricação obrigatória</span>
+                                <input type="date" class="form-control" id="fabricacao" aria-describedby="fabricacao"
+                                    required placeholder="dd/mm/aaaa">
+                                <span id="semFabricacao" class="alert alert-danger mt-2" hidden>Fabricação
+                                    obrigatória</span>
                             </div>
                         </div>
                         <div class="p-3">
                             <div class="row d-flex justify-content-between">
-                                <button id="botaoSalvar" class="medidasBotao w-25 btn btn-success"
+                                <button type="button" id="botaoSalvar" class="medidasBotao w-25 btn btn-success"
                                     onclick="salvar()">Salvar</button>
                                 <a href="listagem.html" class="medidasBotao w-25 btn btn-danger">Cancelar</a>
                             </div>

@@ -32,6 +32,8 @@ function salvar(edicao = false){
 
         if (edicao == false){
             itensTabela.push(item);
+            modal("#itemSalvo");
+
         }else{
             let id = $("#itemEditado").val();
             itensTabela[id] = item;
@@ -41,11 +43,8 @@ function salvar(edicao = false){
         itensTabela = transformarEmJson(itensTabela);
         salvarEmLocalStorage(itensTabela);
 
-        if (edicao == false){
-            alert("Item salvo com Sucesso!");
-        }
     }else{
-        alert("Produto vencido!");
+        modal("#itemVencido");
     }
 }
 
